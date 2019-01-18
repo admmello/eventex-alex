@@ -5,7 +5,7 @@ from django.test import TestCase
 
 class SubscribePostValid(TestCase):
     def setUp(self):
-        data = dict(name='nome', cpf='12345678901', email='a@a.com', phone='121212')
+        data = dict(name='Nome Teste', cpf='12345678901', email='a@a.com', phone='121212')
         self.client.post(resolve_url('subscriptions:new'), data)
         self.email = mail.outbox[0]
 
@@ -27,7 +27,7 @@ class SubscribePostValid(TestCase):
 
     def test_subscription_email_body(self):
         contents = [
-            'nome',
+            'Nome Teste',
             '12345678901',
             'a@a.com',
             '121212',
