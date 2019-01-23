@@ -31,13 +31,13 @@ class ContactModelTest(TestCase):
 
     def test_choices(self):
         """Contact kind should be limited to E or P"""
-        contact = Contact(speaker=self.speaker, kind=Contact.EMAIL, value='B')
+        contact = Contact(speaker=self.speaker, kind='A', value='B')
         self.assertRaises(ValidationError, contact.full_clean)
 
     def test_str(self):
         contact = Contact(
             speaker=self.speaker,
-            kind='E',
+            kind=Contact.EMAIL,
             value='a@a.com'
         )
         self.assertEqual('a@a.com', str(contact))
