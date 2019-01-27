@@ -50,3 +50,6 @@ class TalkListGetEmpty(TestCase):
         response = self.client.get(resolve_url('talk_list'))
         self.assertContains(response, 'Ainda não existem palestras de manhã.')
         self.assertContains(response, 'Ainda não existem palestras de tarde.')
+
+
+        #17:41
